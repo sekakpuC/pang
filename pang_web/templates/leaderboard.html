@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PANG Leaderboard</title>
+    <style type="text/css">
+#rounded-corner thead th.rounded-company {
+    background: #b9c9fe url(/static/images/top-left-round.png) left -1px no-repeat;
+}
+
+#rounded-corner thead th.rounded-last-col {
+    background: #b9c9fe url(/static/images/top-right-round.png) right -1px no-repeat;
+}
+
+#rounded-corner th {
+    font-weight: 400;
+    font-size: 13px;
+    color: #039;
+    background: #b9c9fe;
+    padding: 8px;
+	border-left: 1px solid #fff;
+}
+
+#rounded-corner td {
+    background: #e8edff;
+    border-top: 1px solid #fff;
+	border-left: 1px solid #fff;
+    color: #669;
+    padding: 8px;
+}
+
+#rounded-corner tfoot td.rounded-foot-left {
+    background: #e8edff url(/static/images/bottom-left-round.png) left bottom no-repeat;
+}
+
+#rounded-corner tfoot td.rounded-foot-right {
+    background: #e8edff url(/static/images/bottom-right-round.png) right bottom no-repeat;
+	border-left: 0px solid #fff;
+}
+
+#rounded-corner tbody tr:hover td {
+    background: #d0dafd;
+}
+
+#rounded-corner {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 12px;
+    width: 280px;
+    text-align: left;
+    border-collapse: collapse;
+    margin: 20px;
+}
+    </style>
+</head>
+<body>
+
+<center>
+    <h1>PANG Leaderboard 3</h1>
+    <table id="rounded-corner" border=0 width="90%">
+        <thead>
+        <tr>
+            <th scope="col" class="rounded-company"></th>
+            <th scope="col" class="rounded-inner-col">rank</th>
+            <th scope="col" class="rounded-inner-col">username</th>
+            <th scope="col" class="rounded-inner-col">score</th>
+            <th scope="col" class="rounded-last-col"></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for a in result %}
+        <tr>
+            <td></td>
+            <td>{{loop.index}}</td>
+            <td>{{a["username"]}}</td>
+            <td>{{a["score"]}}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+        <tfoot>
+        <tr>
+            <td class="rounded-foot-left"></td>
+            <td colspan="3"></td>
+            <td class="rounded-foot-right">&#160;</td>
+        </tr>
+        </tfoot>
+        </tbody>
+    </table>
+
+</center>
+</body>
+</html>
